@@ -54,7 +54,7 @@ abstract class RenameApkTask @Inject constructor(private val flavourName: String
             .submit(this) { artifact ->
                 val abi = artifact.filters.firstOrNull { it.filterType == FilterConfiguration.FilterType.ABI }?.identifier ?: "universal"
                 val flavorPostfix = flavourName?.let { "-$it" } ?: ""
-                val name = "session-${artifact.versionName}-$abi$flavorPostfix.apk"
+                val name = "learnai-${artifact.versionName}-$abi$flavorPostfix.apk"
                 val dst = outputDir.file(name).get().asFile
                 File(artifact.outputFile).copyTo(dst, overwrite = true)
                 dst
